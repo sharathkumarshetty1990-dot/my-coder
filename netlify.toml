@@ -1,0 +1,23 @@
+[build]
+  command = "bun install && bun run build --cwd packages/app"
+  publish = "packages/app/dist"
+  functions = "netlify/functions"
+
+[dev]
+  command = "bun run dev --cwd packages/app"
+  port = 3000
+  targetPort = 3000
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production]
+  command = "bun install && bun run build --cwd packages/app"
+
+[context.deploy-preview]
+  command = "bun install && bun run build --cwd packages/app"
+
+[context.branch-deploy]
+  command = "bun install && bun run build --cwd packages/app"
