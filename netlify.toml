@@ -1,11 +1,10 @@
 [build]
-  command = "bun install --no-save && bun run build --cwd packages/app"
+  command = "npm install && npm run build --workspace=@opencode-ai/app"
   publish = "packages/app/dist"
   functions = "netlify/functions"
-  environment = { BUN_SKIP_INSTALL_SCRIPTS = "1" }
 
 [dev]
-  command = "bun run dev --cwd packages/app"
+  command = "npm run dev --workspace=@opencode-ai/app"
   port = 3000
   targetPort = 3000
 
@@ -15,13 +14,10 @@
   status = 200
 
 [context.production]
-  command = "bun install --no-save && bun run build --cwd packages/app"
-  environment = { BUN_SKIP_INSTALL_SCRIPTS = "1" }
+  command = "npm install && npm run build --workspace=@opencode-ai/app"
 
 [context.deploy-preview]
-  command = "bun install --no-save && bun run build --cwd packages/app"
-  environment = { BUN_SKIP_INSTALL_SCRIPTS = "1" }
+  command = "npm install && npm run build --workspace=@opencode-ai/app"
 
 [context.branch-deploy]
-  command = "bun install --no-save && bun run build --cwd packages/app"
-  environment = { BUN_SKIP_INSTALL_SCRIPTS = "1" }
+  command = "npm install && npm run build --workspace=@opencode-ai/app"
