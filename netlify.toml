@@ -1,7 +1,8 @@
 [build]
-  command = "bun install && bun run build --cwd packages/app"
+  command = "bun install --no-save && bun run build --cwd packages/app"
   publish = "packages/app/dist"
   functions = "netlify/functions"
+  environment = { BUN_SKIP_INSTALL_SCRIPTS = "1" }
 
 [dev]
   command = "bun run dev --cwd packages/app"
@@ -14,10 +15,13 @@
   status = 200
 
 [context.production]
-  command = "bun install && bun run build --cwd packages/app"
+  command = "bun install --no-save && bun run build --cwd packages/app"
+  environment = { BUN_SKIP_INSTALL_SCRIPTS = "1" }
 
 [context.deploy-preview]
-  command = "bun install && bun run build --cwd packages/app"
+  command = "bun install --no-save && bun run build --cwd packages/app"
+  environment = { BUN_SKIP_INSTALL_SCRIPTS = "1" }
 
 [context.branch-deploy]
-  command = "bun install && bun run build --cwd packages/app"
+  command = "bun install --no-save && bun run build --cwd packages/app"
+  environment = { BUN_SKIP_INSTALL_SCRIPTS = "1" }
